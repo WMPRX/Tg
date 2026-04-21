@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
+import { rateLimit, clientKey } from "@/lib/ratelimit";
 
 const schema = z.object({
   token: z.string().min(16).max(128),
@@ -9,6 +10,10 @@ const schema = z.object({
 });
 
 export async function POST(req: Request) {
+  const rl = rateLimit(clientKey(req, "reset"), 10, 15 * 60 * 1000);
+  if (!rl.success) {
+    return NextResponse.json({ error: "TooManyRequests" }, { status: 429 });
+  }
   let body: unknown;
   try {
     body = await req.json();

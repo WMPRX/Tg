@@ -3,12 +3,17 @@ import { z } from "zod";
 import { randomBytes } from "crypto";
 import { prisma } from "@/lib/prisma";
 import { sendEmail, resetPasswordEmail } from "@/lib/email";
+import { rateLimit, clientKey } from "@/lib/ratelimit";
 
 const schema = z.object({
   email: z.string().trim().toLowerCase().email(),
 });
 
 export async function POST(req: Request) {
+  const rl = rateLimit(clientKey(req, "forgot"), 5, 15 * 60 * 1000);
+  if (!rl.success) {
+    return NextResponse.json({ error: "TooManyRequests" }, { status: 429 });
+  }
   let body: unknown;
   try {
     body = await req.json();

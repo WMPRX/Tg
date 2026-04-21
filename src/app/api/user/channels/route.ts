@@ -3,6 +3,7 @@ import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/rbac";
 import { CHANNEL_TYPES, LOCALES } from "@/lib/constants";
+import { rateLimit, clientKey } from "@/lib/ratelimit";
 
 const schema = z.object({
   telegramUsername: z
@@ -34,6 +35,21 @@ export async function GET() {
 export async function POST(req: Request) {
   const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const rl = rateLimit(`submit:${user.id}`, 10, 60 * 60 * 1000);
+  if (!rl.success) {
+    return NextResponse.json({ error: "TooManyRequests" }, { status: 429 });
+  }
+
+  const settings = await prisma.siteSettings.findUnique({ where: { id: 1 } });
+  if (settings) {
+    const active = await prisma.channel.count({
+      where: { submittedById: Number(user.id) },
+    });
+    if (active >= settings.maxChannelsPerUser) {
+      return NextResponse.json({ error: "channelLimitReached" }, { status: 403 });
+    }
+  }
 
   let body: unknown;
   try {

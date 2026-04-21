@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 import { randomBytes } from "crypto";
 import { prisma } from "@/lib/prisma";
 import { sendEmail, welcomeEmail, verifyEmail } from "@/lib/email";
+import { rateLimit, clientKey } from "@/lib/ratelimit";
 
 const schema = z.object({
   name: z.string().trim().min(1).max(80),
@@ -18,6 +19,10 @@ const schema = z.object({
 });
 
 export async function POST(req: Request) {
+  const rl = rateLimit(clientKey(req, "register"), 5, 15 * 60 * 1000);
+  if (!rl.success) {
+    return NextResponse.json({ error: "TooManyRequests" }, { status: 429 });
+  }
   let body: unknown;
   try {
     body = await req.json();
