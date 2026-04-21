@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { randomBytes } from "crypto";
 import { prisma } from "@/lib/prisma";
+import { sendEmail, resetPasswordEmail } from "@/lib/email";
 
 const schema = z.object({
   email: z.string().trim().toLowerCase().email(),
@@ -28,10 +29,15 @@ export async function POST(req: Request) {
       where: { id: user.id },
       data: { resetToken: token, resetTokenExpires: expires },
     });
-    // TODO: send reset email via src/lib/email.ts once email templates land.
-    if (process.env.NODE_ENV !== "production") {
-      console.log(`[dev] reset-password token for ${email}: ${token}`);
-    }
+    const appUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
+    await sendEmail({
+      to: email,
+      subject: "Reset your password",
+      html: resetPasswordEmail({
+        userName: user.name,
+        resetUrl: `${appUrl}/reset-password?token=${token}`,
+      }),
+    });
   }
 
   // Always return success to prevent email enumeration.

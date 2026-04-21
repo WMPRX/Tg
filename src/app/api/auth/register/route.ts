@@ -3,6 +3,7 @@ import { z } from "zod";
 import bcrypt from "bcryptjs";
 import { randomBytes } from "crypto";
 import { prisma } from "@/lib/prisma";
+import { sendEmail, welcomeEmail, verifyEmail } from "@/lib/email";
 
 const schema = z.object({
   name: z.string().trim().min(1).max(80),
@@ -60,10 +61,18 @@ export async function POST(req: Request) {
     select: { id: true, email: true, username: true, name: true },
   });
 
-  // TODO: send verification email via src/lib/email.ts once email templates land.
-  if (process.env.NODE_ENV !== "production") {
-    console.log(`[dev] verify-email token for ${email}: ${emailVerifyToken}`);
-  }
+  const appUrl = process.env.NEXTAUTH_URL ?? "http://localhost:3000";
+  const verifyUrl = `${appUrl}/verify-email?token=${emailVerifyToken}`;
+  await sendEmail({
+    to: email,
+    subject: "Verify your email",
+    html: verifyEmail({ userName: name, verifyUrl }),
+  });
+  await sendEmail({
+    to: email,
+    subject: "Welcome to TgDir",
+    html: welcomeEmail({ userName: name, loginUrl: `${appUrl}/dashboard` }),
+  });
 
   return NextResponse.json({ ok: true, user }, { status: 201 });
 }

@@ -3,6 +3,12 @@ import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser, isStaff } from "@/lib/rbac";
 import { ORDER_STATUSES } from "@/lib/constants";
+import { localize } from "@/lib/utils";
+import {
+  sendEmail,
+  premiumActivatedEmail,
+  paymentReceiptEmail,
+} from "@/lib/email";
 
 const schema = z.object({
   status: z.enum(ORDER_STATUSES as unknown as [string, ...string[]]),
@@ -24,7 +30,10 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
   const parsed = schema.safeParse(body);
   if (!parsed.success) return NextResponse.json({ error: "ValidationError" }, { status: 400 });
 
-  const order = await prisma.premiumOrder.findUnique({ where: { id }, include: { plan: true } });
+  const order = await prisma.premiumOrder.findUnique({
+    where: { id },
+    include: { plan: true, user: true, channel: true },
+  });
   if (!order) return NextResponse.json({ error: "NotFound" }, { status: 404 });
 
   const updates: Parameters<typeof prisma.premiumOrder.update>[0]["data"] = {
@@ -45,6 +54,28 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
         premiumPosition: 100,
         hasBadge: true,
       },
+    });
+    const planName = localize(order.plan.name, "en");
+    await sendEmail({
+      to: order.user.email,
+      subject: `Premium activated for @${order.channel.username}`,
+      html: premiumActivatedEmail({
+        userName: order.user.name,
+        channelUsername: order.channel.username,
+        planName,
+        endDate: end,
+      }),
+    });
+    await sendEmail({
+      to: order.user.email,
+      subject: `Receipt — ${order.orderNumber}`,
+      html: paymentReceiptEmail({
+        userName: order.user.name,
+        orderNumber: order.orderNumber,
+        amount: order.amount,
+        currency: order.currency,
+        planName,
+      }),
     });
   }
   if (parsed.data.status === "EXPIRED" || parsed.data.status === "CANCELLED" || parsed.data.status === "REFUNDED") {
