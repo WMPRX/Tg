@@ -1,0 +1,103 @@
+{
+  "site": { "name": "TgDir", "tagline": "Annuaire de canaux et groupes Telegram" },
+  "nav": {
+    "home": "Accueil", "channels": "Canaux", "groups": "Groupes", "categories": "Catégories",
+    "search": "Rechercher", "premium": "Premium", "about": "À propos",
+    "login": "Connexion", "register": "S'inscrire", "dashboard": "Tableau de bord",
+    "myChannels": "Mes canaux", "addChannel": "Ajouter un canal",
+    "settings": "Paramètres", "logout": "Déconnexion", "admin": "Admin"
+  },
+  "promoBar": { "title": "Mettez en avant votre canal — en tête de l'annuaire", "cta": "Passer Premium" },
+  "hero": {
+    "titlePrefix": "Découvrez les meilleurs ", "titleAccent": "canaux Telegram", "titleSuffix": "",
+    "subtitle": "Canaux et groupes Telegram sélectionnés, classés et multilingues. Mis à jour quotidiennement.",
+    "searchPlaceholder": "Rechercher canaux ou groupes...",
+    "statChannels": "CANAUX", "statMembers": "MEMBRES", "statLanguages": "LANGUES"
+  },
+  "table": {
+    "number": "#", "channel": "CANAL", "category": "CATÉGORIE",
+    "members": "MEMBRES", "language": "LAN",
+    "empty": "Aucun canal trouvé", "showing": "Affichage de {shown} sur {total}"
+  },
+  "channel": {
+    "verified": "Vérifié", "premium": "Premium",
+    "channel": "Canal", "group": "Groupe", "supergroup": "Supergroupe",
+    "openInTelegram": "Ouvrir dans Telegram",
+    "members": "MEMBRES", "currentRank": "RANG ACTUEL",
+    "growth": "CROISSANCE", "lastUpdate": "MIS À JOUR",
+    "growthTitle": "Croissance des membres",
+    "noHistory": "Pas encore de données — revenez bientôt.",
+    "similar": "Canaux similaires", "back": "Canaux"
+  },
+  "categories": { "title": "Catégories", "allCategories": "Toutes", "channelCount": "{count} canaux" },
+  "search": { "title": "Recherche", "placeholder": "Rechercher...", "noResults": "Aucun résultat" },
+  "premium": {
+    "heroTitle": "Mettez en avant votre canal",
+    "heroSubtitle": "Plus de visibilité, plus de membres.",
+    "cta": "Commencer", "plansTitle": "Offres",
+    "feature_top": "Position en tête", "feature_badge": "Badge à la une", "feature_highlight": "Surbrillance",
+    "feature_banner": "Bannière sponsorisée", "feature_priority": "Priorité catégorie",
+    "feature_stats": "Statistiques détaillées",
+    "durationDays": "{days} jours", "buyNow": "Acheter", "selectPlan": "Choisir"
+  },
+  "auth": {
+    "loginTitle": "Connexion", "registerTitle": "Inscription",
+    "email": "E-mail", "password": "Mot de passe", "confirmPassword": "Confirmer le mot de passe",
+    "name": "Nom", "username": "Nom d'utilisateur", "telegramUsername": "Telegram @",
+    "rememberMe": "Se souvenir de moi", "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Pas de compte ?", "haveAccount": "Déjà un compte ?",
+    "signInWithGoogle": "Google", "signInWithTelegram": "Telegram",
+    "agreeTerms": "J'accepte les conditions",
+    "submit": "Envoyer", "loggingIn": "Connexion...", "registering": "Inscription...",
+    "resetPasswordTitle": "Réinitialiser le mot de passe", "sendResetLink": "Envoyer le lien",
+    "invalidCredentials": "E-mail ou mot de passe incorrect",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "weakPassword": "Le mot de passe doit comporter au moins 8 caractères",
+    "mustAgree": "Vous devez accepter les conditions",
+    "registerFailed": "Échec de l'inscription. Veuillez réessayer.",
+    "forgotPasswordHelp": "Entrez votre e-mail, nous enverrons un lien.",
+    "resetLinkSent": "Si un compte existe, un lien a été envoyé.",
+    "invalidToken": "Ce lien est invalide ou expiré."
+  },
+  "dashboard": {
+    "title": "Tableau de bord", "welcome": "Bienvenue, {name}",
+    "myChannelsTitle": "Mes canaux", "addNewChannel": "Nouveau canal",
+    "noChannels": "Vous n'avez pas encore ajouté de canaux.",
+    "status": "Statut",
+    "status_PENDING": "En attente", "status_APPROVED": "Approuvé",
+    "status_REJECTED": "Rejeté", "status_REVISION_REQUESTED": "Révision demandée",
+    "edit": "Modifier", "makePremium": "Passer Premium", "delete": "Supprimer",
+    "wizard_step1": "Telegram", "wizard_step2": "Détails",
+    "wizard_step3": "Aperçu", "wizard_step4": "Envoyer",
+    "fetchFromTelegram": "Récupérer les infos",
+    "submitForReview": "Soumettre",
+    "submittedNotice": "Votre demande est en cours d'examen..."
+  },
+  "admin": {
+    "title": "Admin", "dashboard": "Tableau de bord", "channels": "Canaux",
+    "submissions": "Modération", "categories": "Catégories", "tags": "Étiquettes",
+    "trends": "Tendances", "users": "Utilisateurs", "premium": "Premium & Finances",
+    "settings": "Paramètres", "seo": "SEO", "pages": "Pages",
+    "totalChannels": "Total canaux", "totalGroups": "Total groupes",
+    "totalMembers": "Total membres", "todayAdded": "Ajoutés aujourd'hui",
+    "totalUsers": "Utilisateurs", "pendingSubmissions": "En attente",
+    "activePremium": "Premium actifs", "monthRevenue": "Revenus du mois",
+    "approve": "Approuver", "reject": "Rejeter",
+    "requestRevision": "Demander révision", "viewOnTelegram": "Voir sur Telegram"
+  },
+  "footer": {
+    "about": "Découvrez les meilleurs canaux et groupes Telegram dans {total} langues et {cats} catégories.",
+    "discover": "Découvrir", "popularChannels": "Populaires", "categories": "Catégories",
+    "languages": "Langues", "newChannels": "Nouveaux", "forOwners": "Pour les propriétaires",
+    "addChannel": "Ajouter un canal", "premium": "Premium", "pricing": "Tarifs",
+    "helpCenter": "Aide", "company": "Société",
+    "aboutUs": "À propos", "blog": "Blog", "privacy": "Confidentialité", "terms": "CGU",
+    "copyright": "© {year} TgDir. Tous droits réservés.",
+    "disclaimer": "Non affilié à Telegram Messenger Inc."
+  },
+  "common": {
+    "loading": "Chargement...", "save": "Enregistrer", "cancel": "Annuler",
+    "confirm": "Confirmer", "back": "Retour", "next": "Suivant", "search": "Rechercher",
+    "theme": "Thème", "light": "Clair", "dark": "Sombre", "system": "Système"
+  }
+}

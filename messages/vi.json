@@ -1,0 +1,103 @@
+{
+  "site": { "name": "TgDir", "tagline": "Danh bạ Kênh & Nhóm Telegram" },
+  "nav": {
+    "home": "Trang chủ", "channels": "Kênh", "groups": "Nhóm", "categories": "Danh mục",
+    "search": "Tìm", "premium": "Premium", "about": "Giới thiệu",
+    "login": "Đăng nhập", "register": "Đăng ký", "dashboard": "Bảng điều khiển",
+    "myChannels": "Kênh của tôi", "addChannel": "Thêm kênh",
+    "settings": "Cài đặt", "logout": "Đăng xuất", "admin": "Admin"
+  },
+  "promoBar": { "title": "Quảng bá kênh của bạn — lên đầu danh bạ", "cta": "Lên Premium" },
+  "hero": {
+    "titlePrefix": "Khám phá ", "titleAccent": "kênh Telegram", "titleSuffix": " tốt nhất",
+    "subtitle": "Kênh và nhóm Telegram được chọn lọc, xếp hạng và đa ngôn ngữ. Cập nhật hàng ngày.",
+    "searchPlaceholder": "Tìm kênh hoặc nhóm...",
+    "statChannels": "KÊNH", "statMembers": "THÀNH VIÊN", "statLanguages": "NGÔN NGỮ"
+  },
+  "table": {
+    "number": "#", "channel": "KÊNH", "category": "DANH MỤC",
+    "members": "THÀNH VIÊN", "language": "NG",
+    "empty": "Không có kênh", "showing": "Hiển thị {shown}/{total}"
+  },
+  "channel": {
+    "verified": "Đã xác thực", "premium": "Premium",
+    "channel": "Kênh", "group": "Nhóm", "supergroup": "Siêu nhóm",
+    "openInTelegram": "Mở trong Telegram",
+    "members": "THÀNH VIÊN", "currentRank": "XẾP HẠNG",
+    "growth": "TĂNG TRƯỞNG", "lastUpdate": "CẬP NHẬT",
+    "growthTitle": "Tăng trưởng thành viên",
+    "noHistory": "Chưa có dữ liệu — quay lại sau.",
+    "similar": "Kênh tương tự", "back": "Kênh"
+  },
+  "categories": { "title": "Danh mục", "allCategories": "Tất cả", "channelCount": "{count} kênh" },
+  "search": { "title": "Tìm kiếm", "placeholder": "Tìm kênh hoặc nhóm...", "noResults": "Không có kết quả" },
+  "premium": {
+    "heroTitle": "Đưa kênh của bạn nổi bật",
+    "heroSubtitle": "Nhiều hiển thị hơn, nhiều thành viên hơn.",
+    "cta": "Bắt đầu", "plansTitle": "Gói",
+    "feature_top": "Vị trí đầu", "feature_badge": "Huy hiệu nổi bật", "feature_highlight": "Làm nổi",
+    "feature_banner": "Banner tài trợ", "feature_priority": "Ưu tiên danh mục",
+    "feature_stats": "Thống kê chi tiết",
+    "durationDays": "{days} ngày", "buyNow": "Mua", "selectPlan": "Chọn"
+  },
+  "auth": {
+    "loginTitle": "Đăng nhập", "registerTitle": "Đăng ký",
+    "email": "Email", "password": "Mật khẩu", "confirmPassword": "Nhập lại mật khẩu",
+    "name": "Họ tên", "username": "Tên người dùng", "telegramUsername": "Telegram @",
+    "rememberMe": "Ghi nhớ", "forgotPassword": "Quên mật khẩu?",
+    "noAccount": "Chưa có tài khoản?", "haveAccount": "Đã có tài khoản?",
+    "signInWithGoogle": "Google", "signInWithTelegram": "Telegram",
+    "agreeTerms": "Tôi đồng ý điều khoản",
+    "submit": "Gửi", "loggingIn": "Đang đăng nhập...", "registering": "Đang đăng ký...",
+    "resetPasswordTitle": "Đặt lại mật khẩu", "sendResetLink": "Gửi liên kết",
+    "invalidCredentials": "Email hoặc mật khẩu sai",
+    "passwordMismatch": "Mật khẩu không khớp",
+    "weakPassword": "Mật khẩu cần ít nhất 8 ký tự",
+    "mustAgree": "Bạn phải đồng ý điều khoản",
+    "registerFailed": "Đăng ký thất bại. Vui lòng thử lại.",
+    "forgotPasswordHelp": "Nhập email, chúng tôi sẽ gửi liên kết đặt lại.",
+    "resetLinkSent": "Nếu tài khoản tồn tại, liên kết đặt lại đã được gửi.",
+    "invalidToken": "Liên kết không hợp lệ hoặc đã hết hạn."
+  },
+  "dashboard": {
+    "title": "Bảng điều khiển", "welcome": "Chào {name}",
+    "myChannelsTitle": "Kênh của tôi", "addNewChannel": "Thêm kênh mới",
+    "noChannels": "Bạn chưa thêm kênh nào.",
+    "status": "Trạng thái",
+    "status_PENDING": "Chờ duyệt", "status_APPROVED": "Đã duyệt",
+    "status_REJECTED": "Bị từ chối", "status_REVISION_REQUESTED": "Cần sửa",
+    "edit": "Sửa", "makePremium": "Nâng Premium", "delete": "Xóa",
+    "wizard_step1": "Telegram", "wizard_step2": "Chi tiết",
+    "wizard_step3": "Xem trước", "wizard_step4": "Gửi",
+    "fetchFromTelegram": "Lấy thông tin",
+    "submitForReview": "Gửi duyệt",
+    "submittedNotice": "Đơn của bạn đang được duyệt..."
+  },
+  "admin": {
+    "title": "Quản trị", "dashboard": "Tổng quan", "channels": "Kênh",
+    "submissions": "Duyệt", "categories": "Danh mục", "tags": "Thẻ",
+    "trends": "Xu hướng", "users": "Người dùng", "premium": "Premium & Tài chính",
+    "settings": "Cài đặt", "seo": "SEO", "pages": "Trang",
+    "totalChannels": "Tổng kênh", "totalGroups": "Tổng nhóm",
+    "totalMembers": "Tổng thành viên", "todayAdded": "Thêm hôm nay",
+    "totalUsers": "Người dùng", "pendingSubmissions": "Chờ duyệt",
+    "activePremium": "Premium Hoạt động", "monthRevenue": "Doanh thu tháng",
+    "approve": "Duyệt", "reject": "Từ chối",
+    "requestRevision": "Yêu cầu sửa", "viewOnTelegram": "Xem trên Telegram"
+  },
+  "footer": {
+    "about": "Khám phá kênh và nhóm Telegram tốt nhất trên {total} ngôn ngữ và {cats} danh mục.",
+    "discover": "Khám phá", "popularChannels": "Phổ biến", "categories": "Danh mục",
+    "languages": "Ngôn ngữ", "newChannels": "Mới", "forOwners": "Cho chủ kênh",
+    "addChannel": "Thêm kênh", "premium": "Premium", "pricing": "Giá",
+    "helpCenter": "Trợ giúp", "company": "Công ty",
+    "aboutUs": "Về chúng tôi", "blog": "Blog", "privacy": "Riêng tư", "terms": "Điều khoản",
+    "copyright": "© {year} TgDir. Bảo lưu mọi quyền.",
+    "disclaimer": "Không liên kết với Telegram Messenger Inc."
+  },
+  "common": {
+    "loading": "Đang tải...", "save": "Lưu", "cancel": "Hủy",
+    "confirm": "Xác nhận", "back": "Quay lại", "next": "Tiếp", "search": "Tìm",
+    "theme": "Giao diện", "light": "Sáng", "dark": "Tối", "system": "Hệ thống"
+  }
+}
