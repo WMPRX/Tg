@@ -1,0 +1,103 @@
+{
+  "site": { "name": "TgDir", "tagline": "Каталог Telegram каналов и групп" },
+  "nav": {
+    "home": "Главная", "channels": "Каналы", "groups": "Группы", "categories": "Категории",
+    "search": "Поиск", "premium": "Премиум", "about": "О нас",
+    "login": "Войти", "register": "Регистрация", "dashboard": "Панель",
+    "myChannels": "Мои каналы", "addChannel": "Добавить канал",
+    "settings": "Настройки", "logout": "Выйти", "admin": "Админ"
+  },
+  "promoBar": { "title": "Продвигайте свой канал — в топе каталога", "cta": "Премиум" },
+  "hero": {
+    "titlePrefix": "Откройте лучшие ", "titleAccent": "Telegram каналы", "titleSuffix": "",
+    "subtitle": "Подобранные, ранжированные и многоязычные каналы и группы. Обновляется ежедневно.",
+    "searchPlaceholder": "Поиск каналов или групп...",
+    "statChannels": "КАНАЛЫ", "statMembers": "УЧАСТНИКИ", "statLanguages": "ЯЗЫКИ"
+  },
+  "table": {
+    "number": "#", "channel": "КАНАЛ", "category": "КАТЕГОРИЯ",
+    "members": "УЧАСТНИКИ", "language": "ЯЗЫК",
+    "empty": "Каналы не найдены", "showing": "Показано {shown} из {total}"
+  },
+  "channel": {
+    "verified": "Проверено", "premium": "Премиум",
+    "channel": "Канал", "group": "Группа", "supergroup": "Супергруппа",
+    "openInTelegram": "Открыть в Telegram",
+    "members": "УЧАСТНИКИ", "currentRank": "ТЕКУЩИЙ РАНГ",
+    "growth": "РОСТ", "lastUpdate": "ОБНОВЛЕНО",
+    "growthTitle": "Рост участников",
+    "noHistory": "Пока нет данных — загляните позже.",
+    "similar": "Похожие каналы", "back": "Каналы"
+  },
+  "categories": { "title": "Категории", "allCategories": "Все категории", "channelCount": "{count} каналов" },
+  "search": { "title": "Поиск", "placeholder": "Поиск каналов или групп...", "noResults": "Ничего не найдено" },
+  "premium": {
+    "heroTitle": "Продвигайте свой канал",
+    "heroSubtitle": "Больше видимости, больше участников.",
+    "cta": "Начать", "plansTitle": "Тарифы",
+    "feature_top": "В топе", "feature_badge": "Значок Премиум", "feature_highlight": "Выделение",
+    "feature_banner": "Спонсорский баннер", "feature_priority": "Приоритет в категории",
+    "feature_stats": "Детальная статистика",
+    "durationDays": "{days} дней", "buyNow": "Купить", "selectPlan": "Выбрать"
+  },
+  "auth": {
+    "loginTitle": "Вход", "registerTitle": "Регистрация",
+    "email": "Email", "password": "Пароль", "confirmPassword": "Повтор пароля",
+    "name": "Имя", "username": "Имя пользователя", "telegramUsername": "Telegram @",
+    "rememberMe": "Запомнить меня", "forgotPassword": "Забыли пароль?",
+    "noAccount": "Нет аккаунта?", "haveAccount": "Уже есть аккаунт?",
+    "signInWithGoogle": "Google", "signInWithTelegram": "Telegram",
+    "agreeTerms": "Согласен с условиями",
+    "submit": "Отправить", "loggingIn": "Вход...", "registering": "Регистрация...",
+    "resetPasswordTitle": "Сброс пароля", "sendResetLink": "Отправить ссылку",
+    "invalidCredentials": "Неверный email или пароль",
+    "passwordMismatch": "Пароли не совпадают",
+    "weakPassword": "Пароль должен содержать не менее 8 символов",
+    "mustAgree": "Вы должны принять условия использования",
+    "registerFailed": "Не удалось зарегистрироваться. Попробуйте снова.",
+    "forgotPasswordHelp": "Введите email, и мы отправим ссылку для сброса.",
+    "resetLinkSent": "Если аккаунт с таким email существует, ссылка для сброса отправлена.",
+    "invalidToken": "Эта ссылка недействительна или истекла."
+  },
+  "dashboard": {
+    "title": "Панель", "welcome": "Добро пожаловать, {name}",
+    "myChannelsTitle": "Мои каналы", "addNewChannel": "Добавить канал",
+    "noChannels": "У вас пока нет каналов.",
+    "status": "Статус",
+    "status_PENDING": "В ожидании", "status_APPROVED": "Одобрено",
+    "status_REJECTED": "Отклонено", "status_REVISION_REQUESTED": "Требуется правка",
+    "edit": "Изменить", "makePremium": "Премиум", "delete": "Удалить",
+    "wizard_step1": "Telegram", "wizard_step2": "Детали",
+    "wizard_step3": "Предпросмотр", "wizard_step4": "Отправить",
+    "fetchFromTelegram": "Получить данные",
+    "submitForReview": "На проверку",
+    "submittedNotice": "Ваша заявка на рассмотрении..."
+  },
+  "admin": {
+    "title": "Админ-панель", "dashboard": "Обзор", "channels": "Каналы",
+    "submissions": "Модерация", "categories": "Категории", "tags": "Теги",
+    "trends": "Тренды", "users": "Пользователи", "premium": "Премиум & Финансы",
+    "settings": "Настройки", "seo": "SEO", "pages": "Страницы",
+    "totalChannels": "Всего каналов", "totalGroups": "Всего групп",
+    "totalMembers": "Всего участников", "todayAdded": "Добавлено сегодня",
+    "totalUsers": "Пользователи", "pendingSubmissions": "В ожидании",
+    "activePremium": "Активный премиум", "monthRevenue": "Доход за месяц",
+    "approve": "Одобрить", "reject": "Отклонить",
+    "requestRevision": "Запросить правку", "viewOnTelegram": "Открыть в Telegram"
+  },
+  "footer": {
+    "about": "Лучшие Telegram каналы и группы на {total} языках, {cats} категорий.",
+    "discover": "Найти", "popularChannels": "Популярные", "categories": "Категории",
+    "languages": "Языки", "newChannels": "Новые", "forOwners": "Владельцам",
+    "addChannel": "Добавить канал", "premium": "Премиум", "pricing": "Тарифы",
+    "helpCenter": "Поддержка", "company": "Компания",
+    "aboutUs": "О нас", "blog": "Блог", "privacy": "Конфиденциальность", "terms": "Условия",
+    "copyright": "© {year} TgDir. Все права защищены.",
+    "disclaimer": "Не связано с Telegram Messenger Inc."
+  },
+  "common": {
+    "loading": "Загрузка...", "save": "Сохранить", "cancel": "Отмена",
+    "confirm": "Подтвердить", "back": "Назад", "next": "Далее", "search": "Поиск",
+    "theme": "Тема", "light": "Светлая", "dark": "Тёмная", "system": "Система"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "site": { "name": "TgDir", "tagline": "Telegram 频道与群组目录" },
+  "nav": {
+    "home": "首页", "channels": "频道", "groups": "群组", "categories": "分类",
+    "search": "搜索", "premium": "高级", "about": "关于",
+    "login": "登录", "register": "注册", "dashboard": "控制台",
+    "myChannels": "我的频道", "addChannel": "添加频道",
+    "settings": "设置", "logout": "退出", "admin": "管理"
+  },
+  "promoBar": { "title": "推广您的频道 — 排名置顶", "cta": "升级高级版" },
+  "hero": {
+    "titlePrefix": "发现最佳 ", "titleAccent": "Telegram 频道", "titleSuffix": "",
+    "subtitle": "精选、排名、多语言 Telegram 频道和群组。每日更新。",
+    "searchPlaceholder": "搜索频道或群组...",
+    "statChannels": "频道", "statMembers": "成员", "statLanguages": "语言"
+  },
+  "table": {
+    "number": "#", "channel": "频道", "category": "分类",
+    "members": "成员", "language": "语言",
+    "empty": "未找到频道", "showing": "显示 {shown} / {total}"
+  },
+  "channel": {
+    "verified": "已认证", "premium": "高级",
+    "channel": "频道", "group": "群组", "supergroup": "超级群",
+    "openInTelegram": "在 Telegram 中打开",
+    "members": "成员", "currentRank": "当前排名",
+    "growth": "增长", "lastUpdate": "最后更新",
+    "growthTitle": "成员增长",
+    "noHistory": "暂无历史数据 — 稍后再查看。",
+    "similar": "相似频道", "back": "频道"
+  },
+  "categories": { "title": "分类", "allCategories": "所有分类", "channelCount": "{count} 个频道" },
+  "search": { "title": "搜索", "placeholder": "搜索频道或群组...", "noResults": "没有结果" },
+  "premium": {
+    "heroTitle": "让您的频道脱颖而出",
+    "heroSubtitle": "更多曝光,更多成员。",
+    "cta": "立即开始", "plansTitle": "套餐",
+    "feature_top": "置顶", "feature_badge": "特色徽章", "feature_highlight": "行高亮",
+    "feature_banner": "赞助横幅", "feature_priority": "分类优先",
+    "feature_stats": "详细统计",
+    "durationDays": "{days} 天", "buyNow": "购买", "selectPlan": "选择套餐"
+  },
+  "auth": {
+    "loginTitle": "登录", "registerTitle": "注册",
+    "email": "邮箱", "password": "密码", "confirmPassword": "确认密码",
+    "name": "姓名", "username": "用户名", "telegramUsername": "Telegram 用户名",
+    "rememberMe": "记住我", "forgotPassword": "忘记密码?",
+    "noAccount": "还没有账户?", "haveAccount": "已有账户?",
+    "signInWithGoogle": "Google 登录", "signInWithTelegram": "Telegram 登录",
+    "agreeTerms": "我同意服务条款",
+    "submit": "提交", "loggingIn": "登录中...", "registering": "注册中...",
+    "resetPasswordTitle": "重置密码", "sendResetLink": "发送重置链接",
+    "invalidCredentials": "邮箱或密码错误",
+    "passwordMismatch": "两次输入的密码不一致",
+    "weakPassword": "密码至少需 8 个字符",
+    "mustAgree": "必须同意服务条款",
+    "registerFailed": "注册失败，请重试。",
+    "forgotPasswordHelp": "请输入邮箱，我们会发送重置链接。",
+    "resetLinkSent": "如该邮箱存在账户，重置链接已发送。",
+    "invalidToken": "此链接无效或已过期。"
+  },
+  "dashboard": {
+    "title": "控制台", "welcome": "欢迎,{name}",
+    "myChannelsTitle": "我的频道", "addNewChannel": "添加新频道",
+    "noChannels": "您还没有添加任何频道。",
+    "status": "状态",
+    "status_PENDING": "待审核", "status_APPROVED": "已批准",
+    "status_REJECTED": "已拒绝", "status_REVISION_REQUESTED": "需要修改",
+    "edit": "编辑", "makePremium": "升级高级", "delete": "删除",
+    "wizard_step1": "Telegram 信息", "wizard_step2": "详情",
+    "wizard_step3": "预览", "wizard_step4": "提交",
+    "fetchFromTelegram": "获取信息",
+    "submitForReview": "提交审核",
+    "submittedNotice": "您的申请正在审核..."
+  },
+  "admin": {
+    "title": "管理面板", "dashboard": "仪表板", "channels": "频道",
+    "submissions": "审核", "categories": "分类", "tags": "标签",
+    "trends": "趋势", "users": "用户", "premium": "高级与财务",
+    "settings": "设置", "seo": "SEO", "pages": "页面",
+    "totalChannels": "总频道", "totalGroups": "总群组",
+    "totalMembers": "总成员", "todayAdded": "今日添加",
+    "totalUsers": "用户", "pendingSubmissions": "待审核",
+    "activePremium": "活跃高级", "monthRevenue": "本月收入",
+    "approve": "批准", "reject": "拒绝",
+    "requestRevision": "请求修改", "viewOnTelegram": "在 Telegram 查看"
+  },
+  "footer": {
+    "about": "发现 {total} 种语言和 {cats} 个分类中最好的 Telegram 频道和群组。",
+    "discover": "发现", "popularChannels": "热门频道", "categories": "分类",
+    "languages": "语言", "newChannels": "新频道", "forOwners": "频道主",
+    "addChannel": "添加频道", "premium": "高级", "pricing": "价格",
+    "helpCenter": "帮助中心", "company": "公司",
+    "aboutUs": "关于我们", "blog": "博客", "privacy": "隐私", "terms": "条款",
+    "copyright": "© {year} TgDir. 保留所有权利。",
+    "disclaimer": "与 Telegram Messenger Inc. 无关。"
+  },
+  "common": {
+    "loading": "加载中...", "save": "保存", "cancel": "取消",
+    "confirm": "确认", "back": "返回", "next": "下一步", "search": "搜索",
+    "theme": "主题", "light": "浅色", "dark": "深色", "system": "系统"
+  }
+}

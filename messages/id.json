@@ -1,0 +1,103 @@
+{
+  "site": { "name": "TgDir", "tagline": "Direktori Saluran & Grup Telegram" },
+  "nav": {
+    "home": "Beranda", "channels": "Saluran", "groups": "Grup", "categories": "Kategori",
+    "search": "Cari", "premium": "Premium", "about": "Tentang",
+    "login": "Masuk", "register": "Daftar", "dashboard": "Dasbor",
+    "myChannels": "Saluran Saya", "addChannel": "Tambah Saluran",
+    "settings": "Pengaturan", "logout": "Keluar", "admin": "Admin"
+  },
+  "promoBar": { "title": "Promosikan saluran Anda — tampil di teratas", "cta": "Jadi Premium" },
+  "hero": {
+    "titlePrefix": "Temukan ", "titleAccent": "saluran Telegram", "titleSuffix": " terbaik",
+    "subtitle": "Saluran dan grup Telegram pilihan, berperingkat, dan multibahasa. Diperbarui harian.",
+    "searchPlaceholder": "Cari saluran atau grup...",
+    "statChannels": "SALURAN", "statMembers": "ANGGOTA", "statLanguages": "BAHASA"
+  },
+  "table": {
+    "number": "#", "channel": "SALURAN", "category": "KATEGORI",
+    "members": "ANGGOTA", "language": "BHS",
+    "empty": "Tidak ada saluran", "showing": "Menampilkan {shown} dari {total}"
+  },
+  "channel": {
+    "verified": "Terverifikasi", "premium": "Premium",
+    "channel": "Saluran", "group": "Grup", "supergroup": "Supergrup",
+    "openInTelegram": "Buka di Telegram",
+    "members": "ANGGOTA", "currentRank": "PERINGKAT",
+    "growth": "PERTUMBUHAN", "lastUpdate": "DIPERBARUI",
+    "growthTitle": "Pertumbuhan anggota",
+    "noHistory": "Belum ada data — periksa lagi nanti.",
+    "similar": "Saluran serupa", "back": "Saluran"
+  },
+  "categories": { "title": "Kategori", "allCategories": "Semua Kategori", "channelCount": "{count} saluran" },
+  "search": { "title": "Pencarian", "placeholder": "Cari saluran atau grup...", "noResults": "Tidak ada hasil" },
+  "premium": {
+    "heroTitle": "Tampilkan Saluran Anda",
+    "heroSubtitle": "Lebih banyak visibilitas, lebih banyak anggota.",
+    "cta": "Mulai", "plansTitle": "Paket",
+    "feature_top": "Posisi Teratas", "feature_badge": "Lencana Unggulan", "feature_highlight": "Sorotan",
+    "feature_banner": "Banner Sponsor", "feature_priority": "Prioritas Kategori",
+    "feature_stats": "Statistik Detail",
+    "durationDays": "{days} hari", "buyNow": "Beli", "selectPlan": "Pilih"
+  },
+  "auth": {
+    "loginTitle": "Masuk", "registerTitle": "Daftar",
+    "email": "Email", "password": "Kata sandi", "confirmPassword": "Ulangi kata sandi",
+    "name": "Nama", "username": "Nama pengguna", "telegramUsername": "Telegram @",
+    "rememberMe": "Ingat saya", "forgotPassword": "Lupa kata sandi?",
+    "noAccount": "Belum punya akun?", "haveAccount": "Sudah punya akun?",
+    "signInWithGoogle": "Masuk dengan Google", "signInWithTelegram": "Masuk dengan Telegram",
+    "agreeTerms": "Saya setuju dengan syarat layanan",
+    "submit": "Kirim", "loggingIn": "Masuk...", "registering": "Mendaftar...",
+    "resetPasswordTitle": "Setel ulang kata sandi", "sendResetLink": "Kirim tautan",
+    "invalidCredentials": "Email atau kata sandi salah",
+    "passwordMismatch": "Kata sandi tidak cocok",
+    "weakPassword": "Kata sandi minimal 8 karakter",
+    "mustAgree": "Anda harus menyetujui syarat layanan",
+    "registerFailed": "Pendaftaran gagal. Silakan coba lagi.",
+    "forgotPasswordHelp": "Masukkan email Anda dan kami akan mengirim tautan reset.",
+    "resetLinkSent": "Jika akun dengan email tersebut ada, tautan reset telah dikirim.",
+    "invalidToken": "Tautan ini tidak valid atau telah kedaluwarsa."
+  },
+  "dashboard": {
+    "title": "Dasbor", "welcome": "Selamat datang, {name}",
+    "myChannelsTitle": "Saluran Saya", "addNewChannel": "Tambah Saluran Baru",
+    "noChannels": "Anda belum menambah saluran.",
+    "status": "Status",
+    "status_PENDING": "Menunggu", "status_APPROVED": "Disetujui",
+    "status_REJECTED": "Ditolak", "status_REVISION_REQUESTED": "Perlu Revisi",
+    "edit": "Edit", "makePremium": "Jadikan Premium", "delete": "Hapus",
+    "wizard_step1": "Info Telegram", "wizard_step2": "Detail",
+    "wizard_step3": "Pratinjau", "wizard_step4": "Kirim",
+    "fetchFromTelegram": "Ambil Info",
+    "submitForReview": "Kirim untuk Ditinjau",
+    "submittedNotice": "Pengajuan Anda sedang ditinjau..."
+  },
+  "admin": {
+    "title": "Panel Admin", "dashboard": "Dasbor", "channels": "Saluran",
+    "submissions": "Moderasi", "categories": "Kategori", "tags": "Tag",
+    "trends": "Tren", "users": "Pengguna", "premium": "Premium & Keuangan",
+    "settings": "Pengaturan", "seo": "SEO", "pages": "Halaman",
+    "totalChannels": "Total Saluran", "totalGroups": "Total Grup",
+    "totalMembers": "Total Anggota", "todayAdded": "Ditambah Hari Ini",
+    "totalUsers": "Pengguna", "pendingSubmissions": "Menunggu",
+    "activePremium": "Premium Aktif", "monthRevenue": "Pendapatan Bulan Ini",
+    "approve": "Setujui", "reject": "Tolak",
+    "requestRevision": "Minta Revisi", "viewOnTelegram": "Lihat di Telegram"
+  },
+  "footer": {
+    "about": "Temukan saluran dan grup Telegram terbaik di {total} bahasa dan {cats} kategori.",
+    "discover": "Jelajahi", "popularChannels": "Populer", "categories": "Kategori",
+    "languages": "Bahasa", "newChannels": "Baru", "forOwners": "Untuk Pemilik",
+    "addChannel": "Tambah Saluran", "premium": "Premium", "pricing": "Harga",
+    "helpCenter": "Bantuan", "company": "Perusahaan",
+    "aboutUs": "Tentang Kami", "blog": "Blog", "privacy": "Privasi", "terms": "Ketentuan",
+    "copyright": "© {year} TgDir. Hak cipta dilindungi.",
+    "disclaimer": "Tidak terafiliasi dengan Telegram Messenger Inc."
+  },
+  "common": {
+    "loading": "Memuat...", "save": "Simpan", "cancel": "Batal",
+    "confirm": "Konfirmasi", "back": "Kembali", "next": "Selanjutnya", "search": "Cari",
+    "theme": "Tema", "light": "Terang", "dark": "Gelap", "system": "Sistem"
+  }
+}

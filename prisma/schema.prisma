@@ -1,0 +1,283 @@
+// TgDir — Prisma schema
+// Dev: SQLite. Prod'a geçiş: provider = "postgresql" + enum'ları native enum'a çevir.
+// SQLite enum desteklemediği için enum alanları String olarak tutuluyor; uygulama
+// katmanında Zod ile doğrulanıyor. Geçerli değerler src/lib/constants.ts'de.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Channel {
+  id              Int      @id @default(autoincrement())
+  telegramId      String?  @unique
+  username        String   @unique
+  title           String
+  description     String?
+  // ChannelType: "CHANNEL" | "GROUP" | "SUPERGROUP"
+  type            String   @default("CHANNEL")
+  avatarUrl       String?
+  memberCount     Int      @default(0)
+  language        String
+  categoryId      Int?
+  category        Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  isVerified      Boolean  @default(false)
+  isFeatured      Boolean  @default(false)
+  isActive        Boolean  @default(true)
+  inviteLink      String?
+  websiteUrl      String?
+  rank            Int?
+  previousRank    Int?
+  dailyGrowth     Int      @default(0)
+  weeklyGrowth    Int      @default(0)
+  monthlyGrowth   Int      @default(0)
+  tags            TagOnChannel[]
+
+  submittedById   Int?
+  submittedBy     User?    @relation("UserChannels", fields: [submittedById], references: [id], onDelete: SetNull)
+
+  isPremium       Boolean  @default(false)
+  premiumUntil    DateTime?
+  premiumPlanId   Int?
+  premiumPlan     PremiumPlan? @relation(fields: [premiumPlanId], references: [id], onDelete: SetNull)
+  premiumPosition Int?
+  highlightColor  String?
+  hasBadge        Boolean  @default(false)
+
+  statistics      ChannelStatistic[]
+  submissions     ChannelSubmission[]
+  orders          PremiumOrder[]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([language])
+  @@index([categoryId])
+  @@index([isPremium, premiumPosition])
+  @@index([memberCount])
+}
+
+model Category {
+  id           Int        @id @default(autoincrement())
+  name         String     // JSON çok dilli
+  slug         String     @unique
+  icon         String?
+  description  String?    // JSON çok dilli
+  parentId     Int?
+  parent       Category?  @relation("CategoryParent", fields: [parentId], references: [id], onDelete: SetNull)
+  children     Category[] @relation("CategoryParent")
+  order        Int        @default(0)
+  isActive     Boolean    @default(true)
+  channelCount Int        @default(0)
+  channels     Channel[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model Tag {
+  id        Int            @id @default(autoincrement())
+  name      String         // JSON çok dilli
+  slug      String         @unique
+  channels  TagOnChannel[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
+
+model TagOnChannel {
+  channelId Int
+  tagId     Int
+  channel   Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  @@id([channelId, tagId])
+}
+
+model ChannelStatistic {
+  id          Int      @id @default(autoincrement())
+  channelId   Int
+  channel     Channel  @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  memberCount Int
+  viewCount   Int?
+  postCount   Int?
+  date        DateTime
+  createdAt   DateTime @default(now())
+
+  @@index([channelId, date])
+}
+
+model User {
+  id                Int       @id @default(autoincrement())
+  email             String    @unique
+  password          String?
+  name              String
+  username          String    @unique
+  // UserRole: "SUPER_ADMIN" | "ADMIN" | "EDITOR" | "USER"
+  role              String    @default("USER")
+  avatar            String?
+  bio               String?
+  telegramUsername  String?
+  isEmailVerified   Boolean   @default(false)
+  emailVerifyToken  String?
+  emailVerifyExpires DateTime?
+  resetToken        String?
+  resetTokenExpires DateTime?
+  isBanned          Boolean   @default(false)
+  banReason         String?
+  isActive          Boolean   @default(true)
+  lastLogin         DateTime?
+
+  channels          Channel[]           @relation("UserChannels")
+  submissions       ChannelSubmission[] @relation("UserSubmissions")
+  reviewed          ChannelSubmission[] @relation("AdminReviewed")
+  premiumOrders     PremiumOrder[]
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model ChannelSubmission {
+  id                Int      @id @default(autoincrement())
+  userId            Int
+  user              User     @relation("UserSubmissions", fields: [userId], references: [id], onDelete: Cascade)
+  telegramUsername  String
+  title             String?
+  description       String?
+  // ChannelType
+  type              String   @default("CHANNEL")
+  language          String
+  categoryId        Int?
+  tags              String?  // JSON string array
+  inviteLink        String?
+  // SubmissionStatus: "PENDING" | "APPROVED" | "REJECTED" | "REVISION_REQUESTED"
+  status            String   @default("PENDING")
+  reviewNote        String?
+  reviewedById      Int?
+  reviewedBy        User?    @relation("AdminReviewed", fields: [reviewedById], references: [id], onDelete: SetNull)
+  reviewedAt        DateTime?
+  channelId         Int?
+  channel           Channel? @relation(fields: [channelId], references: [id], onDelete: SetNull)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([status])
+}
+
+model PremiumPlan {
+  id           Int      @id @default(autoincrement())
+  name         String   // JSON çok dilli
+  slug         String   @unique
+  description  String   // JSON çok dilli
+  durationDays Int
+  price        Float
+  currency     String   @default("USD")
+  features     String   // JSON: { listingPosition, featuredBadge, highlightColor, bannerSlot, priorityInCategory, detailedStats, maxChannels }
+  isActive     Boolean  @default(true)
+  order        Int      @default(0)
+  channels     Channel[]
+  orders       PremiumOrder[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model PremiumOrder {
+  id             Int      @id @default(autoincrement())
+  orderNumber    String   @unique
+  userId         Int
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  channelId      Int
+  channel        Channel  @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  planId         Int
+  plan           PremiumPlan @relation(fields: [planId], references: [id])
+  amount         Float
+  currency       String
+  // OrderStatus
+  status         String   @default("PENDING_PAYMENT")
+  // PaymentMethod: "STRIPE" | "PAYPAL" | "CRYPTO" | "BANK_TRANSFER" | "PAPARA" | "MANUAL"
+  paymentMethod  String
+  paymentId      String?
+  paymentData    String?
+  startDate      DateTime?
+  endDate        DateTime?
+  autoRenew      Boolean  @default(false)
+  invoiceUrl     String?
+  notes          String?
+  couponCode     String?
+  discountAmount Float    @default(0)
+  transactions   PremiumTransaction[]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([status])
+  @@index([userId])
+}
+
+model PremiumTransaction {
+  id               Int      @id @default(autoincrement())
+  orderId          Int
+  order            PremiumOrder @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  // TransactionType: "PAYMENT" | "REFUND" | "RENEWAL" | "CANCELLATION"
+  type             String
+  amount           Float
+  currency         String
+  // TransactionStatus: "SUCCESS" | "FAILED" | "PENDING"
+  status           String
+  paymentMethod    String
+  providerResponse String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model Coupon {
+  id            Int      @id @default(autoincrement())
+  code          String   @unique
+  discountType  String   // "PERCENT" | "FIXED"
+  discountValue Float
+  minAmount     Float?
+  usageLimit    Int?
+  usageCount    Int      @default(0)
+  validFrom     DateTime?
+  validUntil    DateTime?
+  planSlugs     String?  // virgülle ayrılmış slug listesi
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model SiteSettings {
+  id                    Int      @id @default(1)
+  siteName              String   @default("TgDir")
+  siteDescription       String   @default("{}")
+  logo                  String?
+  favicon               String?
+  defaultLanguage       String   @default("tr")
+  supportedLanguages    String   @default("[\"tr\",\"en\",\"ru\",\"zh\",\"id\",\"vi\",\"es\",\"ar\",\"de\",\"fr\"]")
+  socialLinks           String   @default("{}")
+  analyticsId           String?
+  metaKeywords          String   @default("{}")
+  metaDescription       String   @default("{}")
+  footerText            String   @default("{}")
+  adsEnabled            Boolean  @default(false)
+  maintenanceMode       Boolean  @default(false)
+  trendWeights          String   @default("{\"members\":0.4,\"growth\":0.3,\"activity\":0.2,\"verified\":0.1}")
+  autoApproveMinMembers Int?
+  maxChannelsPerUser    Int      @default(10)
+  bannedWords           String   @default("[]")
+  bankTransferInfo      String?
+  updatedAt             DateTime @updatedAt
+}
+
+model Page {
+  id              Int      @id @default(autoincrement())
+  title           String   // JSON çok dilli
+  slug            String   @unique
+  content         String   // JSON çok dilli
+  metaTitle       String?
+  metaDescription String?
+  metaKeywords    String?
+  isPublished     Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

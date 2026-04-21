@@ -1,0 +1,103 @@
+{
+  "site": { "name": "TgDir", "tagline": "دليل قنوات ومجموعات تيليجرام" },
+  "nav": {
+    "home": "الرئيسية", "channels": "القنوات", "groups": "المجموعات", "categories": "التصنيفات",
+    "search": "بحث", "premium": "بريميوم", "about": "حول",
+    "login": "تسجيل الدخول", "register": "إنشاء حساب", "dashboard": "لوحة التحكم",
+    "myChannels": "قنواتي", "addChannel": "إضافة قناة",
+    "settings": "الإعدادات", "logout": "خروج", "admin": "الإدارة"
+  },
+  "promoBar": { "title": "روّج لقناتك — تصدّر الدليل", "cta": "احصل على بريميوم" },
+  "hero": {
+    "titlePrefix": "اكتشف أفضل ", "titleAccent": "قنوات تيليجرام", "titleSuffix": "",
+    "subtitle": "قنوات ومجموعات تيليجرام مختارة ومرتبة ومتعددة اللغات. تُحدَّث يومياً.",
+    "searchPlaceholder": "ابحث عن قنوات أو مجموعات...",
+    "statChannels": "قناة", "statMembers": "عضو", "statLanguages": "لغة"
+  },
+  "table": {
+    "number": "#", "channel": "القناة", "category": "التصنيف",
+    "members": "الأعضاء", "language": "اللغة",
+    "empty": "لا توجد قنوات", "showing": "عرض {shown} من {total}"
+  },
+  "channel": {
+    "verified": "موثّق", "premium": "بريميوم",
+    "channel": "قناة", "group": "مجموعة", "supergroup": "مجموعة عملاقة",
+    "openInTelegram": "فتح في تيليجرام",
+    "members": "الأعضاء", "currentRank": "الترتيب الحالي",
+    "growth": "النمو", "lastUpdate": "آخر تحديث",
+    "growthTitle": "نمو الأعضاء",
+    "noHistory": "لا توجد بيانات بعد — تفقّد لاحقاً.",
+    "similar": "قنوات مشابهة", "back": "القنوات"
+  },
+  "categories": { "title": "التصنيفات", "allCategories": "كل التصنيفات", "channelCount": "{count} قناة" },
+  "search": { "title": "البحث", "placeholder": "ابحث...", "noResults": "لا توجد نتائج" },
+  "premium": {
+    "heroTitle": "ميّز قناتك",
+    "heroSubtitle": "ظهور أكبر وأعضاء أكثر.",
+    "cta": "ابدأ الآن", "plansTitle": "الباقات",
+    "feature_top": "التثبيت في الأعلى", "feature_badge": "شارة مميزة", "feature_highlight": "إبراز الصف",
+    "feature_banner": "إعلان ممول", "feature_priority": "أولوية في التصنيف",
+    "feature_stats": "إحصائيات تفصيلية",
+    "durationDays": "{days} يوم", "buyNow": "اشترِ", "selectPlan": "اختيار"
+  },
+  "auth": {
+    "loginTitle": "تسجيل الدخول", "registerTitle": "إنشاء حساب",
+    "email": "البريد", "password": "كلمة المرور", "confirmPassword": "تأكيد كلمة المرور",
+    "name": "الاسم", "username": "اسم المستخدم", "telegramUsername": "Telegram @",
+    "rememberMe": "تذكرني", "forgotPassword": "هل نسيت كلمة المرور؟",
+    "noAccount": "لا تملك حساباً؟", "haveAccount": "تملك حساباً؟",
+    "signInWithGoogle": "Google", "signInWithTelegram": "Telegram",
+    "agreeTerms": "أوافق على الشروط",
+    "submit": "إرسال", "loggingIn": "جاري الدخول...", "registering": "جاري التسجيل...",
+    "resetPasswordTitle": "استعادة كلمة المرور", "sendResetLink": "إرسال الرابط",
+    "invalidCredentials": "بيانات خاطئة",
+    "passwordMismatch": "كلمتا المرور غير متطابقتين",
+    "weakPassword": "يجب أن تتكون كلمة المرور من 8 أحرف على الأقل",
+    "mustAgree": "يجب الموافقة على الشروط",
+    "registerFailed": "فشل التسجيل. حاول مرة أخرى.",
+    "forgotPasswordHelp": "أدخل بريدك وسنرسل لك رابط الاستعادة.",
+    "resetLinkSent": "إذا كان الحساب موجوداً، تم إرسال رابط الاستعادة.",
+    "invalidToken": "الرابط غير صالح أو منتهي الصلاحية."
+  },
+  "dashboard": {
+    "title": "لوحة التحكم", "welcome": "مرحباً {name}",
+    "myChannelsTitle": "قنواتي", "addNewChannel": "إضافة قناة جديدة",
+    "noChannels": "لم تضف قنوات بعد.",
+    "status": "الحالة",
+    "status_PENDING": "قيد الانتظار", "status_APPROVED": "مقبولة",
+    "status_REJECTED": "مرفوضة", "status_REVISION_REQUESTED": "يتطلب مراجعة",
+    "edit": "تعديل", "makePremium": "ترقية", "delete": "حذف",
+    "wizard_step1": "تيليجرام", "wizard_step2": "التفاصيل",
+    "wizard_step3": "معاينة", "wizard_step4": "إرسال",
+    "fetchFromTelegram": "جلب البيانات",
+    "submitForReview": "إرسال للمراجعة",
+    "submittedNotice": "طلبك قيد المراجعة..."
+  },
+  "admin": {
+    "title": "الإدارة", "dashboard": "لوحة", "channels": "القنوات",
+    "submissions": "المراجعة", "categories": "التصنيفات", "tags": "الوسوم",
+    "trends": "الرائجة", "users": "المستخدمون", "premium": "البريميوم والمالية",
+    "settings": "الإعدادات", "seo": "SEO", "pages": "الصفحات",
+    "totalChannels": "إجمالي القنوات", "totalGroups": "إجمالي المجموعات",
+    "totalMembers": "إجمالي الأعضاء", "todayAdded": "أُضيفت اليوم",
+    "totalUsers": "المستخدمون", "pendingSubmissions": "قيد الانتظار",
+    "activePremium": "بريميوم نشط", "monthRevenue": "إيرادات الشهر",
+    "approve": "قبول", "reject": "رفض",
+    "requestRevision": "طلب مراجعة", "viewOnTelegram": "عرض في تيليجرام"
+  },
+  "footer": {
+    "about": "اكتشف أفضل قنوات ومجموعات تيليجرام عبر {total} لغة و{cats} تصنيفاً.",
+    "discover": "اكتشاف", "popularChannels": "الشهيرة", "categories": "التصنيفات",
+    "languages": "اللغات", "newChannels": "الجديدة", "forOwners": "للمالكين",
+    "addChannel": "إضافة قناة", "premium": "بريميوم", "pricing": "الأسعار",
+    "helpCenter": "المساعدة", "company": "الشركة",
+    "aboutUs": "من نحن", "blog": "المدونة", "privacy": "الخصوصية", "terms": "الشروط",
+    "copyright": "© {year} TgDir. جميع الحقوق محفوظة.",
+    "disclaimer": "لا ننتمي إلى Telegram Messenger Inc."
+  },
+  "common": {
+    "loading": "جاري التحميل...", "save": "حفظ", "cancel": "إلغاء",
+    "confirm": "تأكيد", "back": "رجوع", "next": "التالي", "search": "بحث",
+    "theme": "المظهر", "light": "فاتح", "dark": "داكن", "system": "النظام"
+  }
+}
