@@ -132,11 +132,64 @@ jobs:
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
 ```
 
-## Deployment notes
+## Deployment
 
-- **Postgres**: flip `prisma/schema.prisma` `datasource.provider` to
-  `"postgresql"`, point `DATABASE_URL` at the cluster, then
-  `npm run db:migrate`. The schema uses only portable types.
+### Coolify (recommended)
+
+The repo ships with a production `Dockerfile` + `docker-compose.yml` that
+runs the Next.js standalone server behind Postgres.
+
+1. **Create the resource** — in Coolify pick **Docker Compose** and point it
+   at this repository. Coolify will use the root `docker-compose.yml`.
+2. **Environment variables** — under the resource's *Environment* tab set at
+   minimum:
+
+   ```env
+   NEXTAUTH_URL=https://tgdir.example.com
+   NEXTAUTH_SECRET=<openssl rand -hex 32>
+   CRON_SECRET=<openssl rand -hex 16>
+   POSTGRES_USER=tgdir
+   POSTGRES_PASSWORD=<long random>
+   POSTGRES_DB=tgdir
+   DATABASE_URL=postgresql://tgdir:<password>@db:5432/tgdir?schema=public
+   # Optional providers
+   TELEGRAM_BOT_TOKEN=...
+   RESEND_API_KEY=...
+   EMAIL_FROM=TgDir <no-reply@tgdir.example.com>
+   ```
+
+3. **First-boot seed** — set `RUN_SEED=true` for the first deployment, then
+   flip it back to `false` and redeploy. The seed creates the admin user,
+   demo user, categories, plans and 17 sample channels.
+4. **Domain** — attach your domain to the `web` service (port 3000). Coolify
+   terminates TLS automatically via its built-in proxy.
+5. **Cron** — in Coolify → *Scheduled Tasks*, add three HTTP POSTs with
+   `Authorization: Bearer $CRON_SECRET`:
+   - `/api/cron/update-stats` (hourly)
+   - `/api/cron/expire-premium` (hourly)
+   - `/api/cron/premium-reminders` (daily)
+
+### Plain Docker / self-hosted
+
+```bash
+cp .env.example .env      # fill in Postgres + NEXTAUTH values
+docker compose up -d --build
+# one-off seed (first boot only)
+docker compose exec web sh -c "node ./node_modules/tsx/dist/cli.mjs ./prisma/seed.ts"
+```
+
+The web container's entrypoint runs `prisma migrate deploy` (falling back to
+`db push` on first boot) before starting `node server.js`.
+
+### Switching between SQLite and Postgres
+
+- `prisma/schema.prisma` → SQLite (used for `npm run dev`).
+- `prisma/schema.production.prisma` → Postgres (copied over the main schema
+  inside the Dockerfile build).
+- Both files stay in sync — keep the model bodies identical; only the
+  `datasource` block differs.
+
+### Other notes
 - **Rate limiter**: `src/lib/ratelimit.ts` uses in-memory state — replace
   with `@upstash/ratelimit` or a Redis-backed solution when running on
   multiple instances.

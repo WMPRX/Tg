@@ -7,6 +7,11 @@ import { Footer } from "@/components/layout/footer";
 import { PromoBar } from "@/components/layout/promo-bar";
 import { LOCALES, RTL_LOCALES, type Locale } from "@/lib/constants";
 
+// DB-backed pages (homepage, channels, categories, premium) rely on live
+// Prisma queries + next-intl server APIs, so rendering stays dynamic. Opting
+// in here covers every page beneath /[locale].
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
