@@ -1,0 +1,26 @@
+# Nixpacks build plan for Coolify.
+#
+# Coolify's Nixpacks auto-detection sometimes fails to advertise the listen
+# port to Traefik ("no available server"). Declaring it here fixes it for
+# every deploy without having to fill the UI's "Ports Exposes" field.
+
+providers = ["node"]
+
+[variables]
+PORT = "3000"
+HOSTNAME = "0.0.0.0"
+NODE_ENV = "production"
+NPM_CONFIG_PRODUCTION = "false"
+NEXT_TELEMETRY_DISABLED = "1"
+
+[phases.setup]
+nixPkgs = ["nodejs_20", "openssl"]
+
+[phases.install]
+cmds = ["npm ci --include=dev --no-audit --no-fund"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npm start"
