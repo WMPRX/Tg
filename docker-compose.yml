@@ -1,15 +1,21 @@
 # -----------------------------------------------------------------------------
-# TgDir — docker-compose for self-hosting via Coolify / plain Docker.
+# TgDir — docker-compose for Coolify (preferred) or plain Docker.
 #
-# Coolify usage:
-#   - Create a new "Docker Compose" resource pointing at this file.
-#   - Set the env vars from .env.example under Coolify → Environment.
-#   - Attach a domain to the `web` service (port 3000).
+# Coolify:
+#   - Resource type: "Docker Compose"
+#   - Point it at this file; Coolify auto-joins services to its proxy network
+#     and reads `expose:` to configure Traefik. Do NOT publish ports to the
+#     host (Traefik handles all ingress).
+#   - Fill the Environment tab using .env.example as a template (at minimum
+#     NEXTAUTH_URL, NEXTAUTH_SECRET, POSTGRES_PASSWORD, DATABASE_URL).
+#   - Attach your domain to the `web` service.
 #
-# Plain Docker usage:
-#   cp .env.example .env        # edit DATABASE_URL, NEXTAUTH_SECRET, etc.
+# Plain Docker:
+#   cp .env.example .env
 #   docker compose up -d --build
-#   docker compose exec web sh -c "RUN_SEED=true node ./node_modules/tsx/dist/cli.mjs ./prisma/seed.ts"
+#   # one-off seed (first boot)
+#   docker compose exec web sh -c \
+#     "node ./node_modules/tsx/dist/cli.mjs ./prisma/seed.ts"
 # -----------------------------------------------------------------------------
 
 services:
@@ -27,8 +33,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    networks:
-      - tgdir
 
   web:
     build:
@@ -40,6 +44,8 @@ services:
         condition: service_healthy
     environment:
       NODE_ENV: production
+      HOSTNAME: 0.0.0.0
+      PORT: "3000"
       DATABASE_URL: ${DATABASE_URL:-postgresql://tgdir:tgdir@db:5432/tgdir?schema=public}
       NEXTAUTH_URL: ${NEXTAUTH_URL}
       NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
@@ -57,10 +63,13 @@ services:
       PAYPAL_CLIENT_SECRET: ${PAYPAL_CLIENT_SECRET:-}
       COINBASE_COMMERCE_KEY: ${COINBASE_COMMERCE_KEY:-}
       COINBASE_WEBHOOK_SECRET: ${COINBASE_WEBHOOK_SECRET:-}
-    ports:
-      - "${APP_PORT:-3000}:3000"
-    networks:
-      - tgdir
+    # `expose` advertises the port on the Docker network without publishing it
+    # to the host. Coolify's Traefik picks this up and routes your domain to
+    # it. For plain-Docker usage, uncomment `ports:` below.
+    expose:
+      - "3000"
+    # ports:
+    #   - "${APP_PORT:-3000}:3000"
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://127.0.0.1:3000/api/health"]
       interval: 30s
@@ -70,7 +79,3 @@ services:
 
 volumes:
   tgdir-postgres:
-
-networks:
-  tgdir:
-    driver: bridge

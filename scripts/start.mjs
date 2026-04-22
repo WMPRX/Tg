@@ -10,7 +10,12 @@
  *
  * Set NEXT_HOSTNAME if you genuinely need to override (rare).
  */
-process.env.HOSTNAME = process.env.NEXT_HOSTNAME || "0.0.0.0";
-process.env.PORT = process.env.PORT || "3000";
+const host = process.env.NEXT_HOSTNAME || "0.0.0.0";
+const port = process.env.PORT || "3000";
+
+process.env.HOSTNAME = host;
+process.env.PORT = port;
+
+console.log(`[tgdir] binding to ${host}:${port} (NODE_ENV=${process.env.NODE_ENV ?? "unset"})`);
 
 await import("../.next/standalone/server.js");
